@@ -1,5 +1,9 @@
 import express, { Request, Response } from "express";
+import dotenv from 'dotenv'
+
 import { filterImageFromURL, deleteLocalFiles, isImage } from "./util/util";
+
+dotenv.config();
 
 (async () => {
   // Init the Express application
@@ -11,7 +15,7 @@ import { filterImageFromURL, deleteLocalFiles, isImage } from "./util/util";
   app.use(express.json());
 
   app.get("/", async (req: Request, res: Response) => {
-    res.status(200).send("Welcome");
+    res.status(200).send("Welcome to my Image-filtering-API");
   });
 
   app.get("/filteredimage", async (req: Request, res: Response) => {
